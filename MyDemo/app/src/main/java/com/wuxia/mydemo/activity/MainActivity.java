@@ -21,12 +21,13 @@ import java.util.List;
  * App首页
  */
 public class MainActivity extends BaseActivity {
-    RecyclerView recyclerViewId;
+    private RecyclerView recyclerViewId;
     private List<String> mDatas;
-    LinearLayoutManager layoutManager;
-    MyRecylerViewAdapter adapter;
+    private LinearLayoutManager layoutManager;
+    private MyRecylerViewAdapter adapter;
     private SwipeRefreshLayout swipe_container;//google自带下拉刷新
     private String Tag = "MainActivity";
+
 
     @Override
     public void initParms(Bundle parms) {
@@ -84,7 +85,12 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                Log.e(Tag, Tag + "--onScrolled--->" + dy);
+                Log.e(Tag, Tag + "--ocnScrolled--->" + dy);
+                if (dy > 0) {//向上滑动
+
+                } else {//向下滑动
+
+                }
             }
 
             @Override
@@ -106,7 +112,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void doBusiness(Context mContext) {
-//        initData();//获取数据
+        //获取数据
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -122,14 +128,8 @@ public class MainActivity extends BaseActivity {
     }
 
     /**
-     * 初始化数据
+     * 数据源
      */
-    private void initData() {
-        for (int i = 0; i <= 10; i++) {
-            mDatas.add("item---" + i);
-        }
-    }
-
     public static class DataResource {
         private static List<String> datas = new ArrayList<>();
         private static int page = 0;
@@ -138,7 +138,7 @@ public class MainActivity extends BaseActivity {
             page = 0;
             datas.clear();
             for (int i = 0; i < 15; i++) {
-                datas.add("我是天才" + i + "号");
+                datas.add("item " + i);
             }
 
             return datas;
@@ -147,7 +147,7 @@ public class MainActivity extends BaseActivity {
         public static List<String> getMoreData() {
             page = page + 1;
             for (int i = 20 * page; i < 20 * (page + 1); i++) {
-                datas.add("我是天才" + i + "号");
+                datas.add("item " + i);
             }
 
             return datas;
