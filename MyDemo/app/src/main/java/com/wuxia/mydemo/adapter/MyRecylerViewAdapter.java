@@ -110,3 +110,4 @@ class FootViewHolder extends RecyclerView.ViewHolder {
 
     }
 }
+

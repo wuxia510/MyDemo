@@ -4,19 +4,141 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MainActivity"
+    android:background="#e0e7eb">
 
-    <TextView
+    <RelativeLayout
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="RecyclerView演示" />
+        android:layout_height="80dp"
+        android:background="#05b552"
+        android:gravity="bottom"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="25dp">
+        <ImageView
+            android:id="@+id/userIconId"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/usericon"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#34cf77"
+            android:layout_marginLeft="20dp"
+            android:padding="10dp"
+            android:layout_toRightOf="@+id/userIconId">
+            <TextView
+                android:id="@+id/cityId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="北京"
+                android:textColor="#97e6b9"
+                android:drawablePadding="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:drawableRight="@drawable/arrow_down"/>
+            <TextView
+                android:layout_width="0.1dp"
+                android:layout_height="match_parent"
+                android:background="#97e6b9"
+                android:layout_marginLeft="10dp"/>
+           <LinearLayout
+               android:id="@+id/linSelectSchoolId"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+               <ImageView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_vertical"
+                   android:src="@drawable/btn_search_img_pressed"
+                   />
+               <TextView
+                   android:id="@+id/schoolId"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="北京东方时尚驾校"
+                   android:singleLine="true"
+                   android:gravity="center_vertical"
+                   android:layout_gravity="center_vertical"
+                   android:textColor="#97e6b9"
+                   android:drawablePadding="5dp" />
+           </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#fff">
+        <RelativeLayout
+            android:id="@+id/relFindSchoolId"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/findSchoolId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="找驾校"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:id="@+id/tv_tabLineSchoolId"
+                android:layout_width="40dp"
+                android:layout_height="0.5dp"
+                android:background="@color/barline"
+                android:layout_below="@+id/findSchoolId"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="0.5dp"
+            android:layout_height="wrap_content"
+            android:background="#ebebeb"
+            android:layout_gravity="center_vertical"/>
+        <RelativeLayout
+            android:id="@+id/relFindTeacherId"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/findTeacherId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="找教练"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:id="@+id/tv_tabLineTeacherId"
+                android:layout_width="40dp"
+                android:layout_height="0.5dp"
+                android:background="@color/barlineUnselected"
+                android:layout_below="@+id/findTeacherId"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ebebeb"
+        android:layout_marginBottom="15dp"/>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerViewId"
             android:layout_width="match_parent"
