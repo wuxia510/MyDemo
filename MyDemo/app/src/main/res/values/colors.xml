@@ -6,5 +6,6 @@
     <color name="main">#05b552</color>
     <color name="barline">#05b552</color>
     <color name="barlineUnselected">#FFF</color>
+    <color name="white">#FFF</color>
 
 </resources>

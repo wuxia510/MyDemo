@@ -10,9 +10,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.wuxia.mydemo.Content;
 import com.wuxia.mydemo.R;
 import com.wuxia.mydemo.abstracts.OnRecyclerViewScrollListener;
@@ -27,7 +31,7 @@ import java.util.List;
 /**
  * App首页
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseFragmentActivity {
     private RecyclerView recyclerViewId;
     private List<Content> mDatas;
     private LinearLayoutManager layoutManager;
@@ -39,6 +43,8 @@ public class MainActivity extends BaseActivity {
     private RelativeLayout relFindTeacherId;
     private TextView tv_tabLineTeacherId;
     private TextView tv_tabLineSchoolId;
+    private FrameLayout frameLayoutId;
+    private LinearLayout lin_myId,lin_announcementId,lin_messageId;
     Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -49,6 +55,11 @@ public class MainActivity extends BaseActivity {
             myAdapter.setFooterView(0);
         }
     };
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
 
     @Override
@@ -147,12 +158,20 @@ public class MainActivity extends BaseActivity {
         relFindTeacherId = (RelativeLayout) findViewById(R.id.relFindTeacherId);
         tv_tabLineSchoolId = (TextView) findViewById(R.id.tv_tabLineSchoolId);
         tv_tabLineTeacherId = (TextView) findViewById(R.id.tv_tabLineTeacherId);
+        frameLayoutId = (FrameLayout) findViewById(R.id.frameLayoutId);
+
+        lin_messageId=(LinearLayout) findViewById(R.id.lin_messageId);
+        lin_announcementId=(LinearLayout) findViewById(R.id.lin_announcementId);
+        lin_myId=(LinearLayout) findViewById(R.id.lin_myId);
     }
 
     @Override
     public void setListener() {
         relFindSchoolId.setOnClickListener(this);
         relFindTeacherId.setOnClickListener(this);
+        lin_myId.setOnClickListener(this);
+        lin_announcementId.setOnClickListener(this);
+        lin_messageId.setOnClickListener(this);
     }
 
     @Override
@@ -171,36 +190,23 @@ public class MainActivity extends BaseActivity {
                 tv_tabLineSchoolId.setBackgroundResource(R.color.barline);
                 tv_tabLineTeacherId.setBackgroundResource(R.color.barlineUnselected);
                 break;
+            case R.id.lin_messageId:
+                break;
+            case R.id.lin_announcementId:
+                break;
+            case R.id.lin_myId:
+                break;
         }
     }
 
-    /**
-     * 数据源
-     */
-    public static class DataResource {
-        private static List<String> datas = new ArrayList<>();
-        private static int page = 0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        public static List<String> getData() {
-            page = 0;
-            datas.clear();
-            for (int i = 0; i < 15; i++) {
-                datas.add("item " + i);
-            }
-
-            return datas;
-        }
-
-        public static List<String> getMoreData() {
-            page = page + 1;
-            for (int i = 20 * page; i < 20 * (page + 1); i++) {
-                datas.add("item " + i);
-            }
-
-            return datas;
-        }
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-
 
     private void initData() {
         Content c = new Content();

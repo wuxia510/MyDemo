@@ -1,143 +1,295 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#e0e7eb"
     android:orientation="vertical"
-    tools:context=".activity.MainActivity"
-    android:background="#e0e7eb">
+    tools:context=".activity.MainActivity">
 
     <RelativeLayout
-        android:id="@+id/textView"
+        android:id="@+id/relTitleBarId"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:layout_alignParentTop="true"
         android:background="#05b552"
         android:gravity="bottom"
-        android:paddingLeft="10dp"
         android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="25dp">
+
         <ImageView
             android:id="@+id/userIconId"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/usericon"/>
+            android:src="@drawable/usericon" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#34cf77"
             android:layout_marginLeft="20dp"
-            android:padding="10dp"
-            android:layout_toRightOf="@+id/userIconId">
+            android:layout_toRightOf="@+id/userIconId"
+            android:background="#34cf77"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
             <TextView
                 android:id="@+id/cityId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="北京"
-                android:textColor="#97e6b9"
-                android:drawablePadding="5dp"
                 android:layout_gravity="center_vertical"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/arrow_down"
                 android:gravity="center_vertical"
-                android:drawableRight="@drawable/arrow_down"/>
+                android:text="北京"
+                android:textColor="#97e6b9" />
+
             <TextView
                 android:layout_width="0.1dp"
                 android:layout_height="match_parent"
-                android:background="#97e6b9"
-                android:layout_marginLeft="10dp"/>
-           <LinearLayout
-               android:id="@+id/linSelectSchoolId"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal">
-               <ImageView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="center_vertical"
-                   android:src="@drawable/btn_search_img_pressed"
-                   />
-               <TextView
-                   android:id="@+id/schoolId"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="北京东方时尚驾校"
-                   android:singleLine="true"
-                   android:gravity="center_vertical"
-                   android:layout_gravity="center_vertical"
-                   android:textColor="#97e6b9"
-                   android:drawablePadding="5dp" />
-           </LinearLayout>
+                android:layout_marginLeft="10dp"
+                android:background="#97e6b9" />
+
+            <LinearLayout
+                android:id="@+id/linSelectSchoolId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/btn_search_img_pressed" />
+
+                <TextView
+                    android:id="@+id/schoolId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:drawablePadding="5dp"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="北京东方时尚驾校"
+                    android:textColor="#97e6b9" />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/linactonBarId"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:background="#fff">
+        android:layout_below="@+id/relTitleBarId"
+        android:background="#fff"
+        android:orientation="horizontal">
+
         <RelativeLayout
             android:id="@+id/relFindSchoolId"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <TextView
                 android:id="@+id/findSchoolId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="找驾校"
                 android:layout_centerInParent="true"
+                android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:layout_marginBottom="8dp"/>
+                android:text="找驾校" />
+
             <TextView
                 android:id="@+id/tv_tabLineSchoolId"
                 android:layout_width="40dp"
                 android:layout_height="0.5dp"
-                android:background="@color/barline"
+                android:layout_alignParentBottom="true"
                 android:layout_below="@+id/findSchoolId"
                 android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"/>
+                android:background="@color/barline" />
         </RelativeLayout>
 
         <TextView
             android:layout_width="0.5dp"
             android:layout_height="wrap_content"
-            android:background="#ebebeb"
-            android:layout_gravity="center_vertical"/>
+            android:layout_gravity="center_vertical"
+            android:background="#ebebeb" />
+
         <RelativeLayout
             android:id="@+id/relFindTeacherId"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <TextView
                 android:id="@+id/findTeacherId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="找教练"
                 android:layout_centerInParent="true"
+                android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:layout_marginBottom="8dp"/>
+                android:text="找教练" />
+
             <TextView
                 android:id="@+id/tv_tabLineTeacherId"
                 android:layout_width="40dp"
                 android:layout_height="0.5dp"
-                android:background="@color/barlineUnselected"
+                android:layout_alignParentBottom="true"
                 android:layout_below="@+id/findTeacherId"
                 android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"/>
+                android:background="@color/barlineUnselected" />
         </RelativeLayout>
     </LinearLayout>
+
     <TextView
+        android:id="@+id/tv_driver"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#ebebeb"
-        android:layout_marginBottom="15dp"/>
+        android:layout_below="@+id/linactonBarId"
+        android:background="#ebebeb" />
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_driver" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLayoutId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@drawable/border">
+
+        <LinearLayout
+            android:id="@+id/lin_messageId"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_launcher" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:background="@drawable/messagebackground"
+                    android:textColor="#fff"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="right"/>
+
+            </FrameLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/message" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_announcementId"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_launcher" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:background="@drawable/messagebackground"
+                    android:textColor="#fff"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="right"
+                    android:visibility="invisible"/>
+
+            </FrameLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/announcement" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_myId"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_launcher" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:background="@drawable/messagebackground"
+                    android:textColor="#fff"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="right"
+                    android:visibility="invisible"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/my" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerViewId"
@@ -145,4 +297,4 @@
             android:layout_height="match_parent" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
-</LinearLayout>
+</RelativeLayout>
